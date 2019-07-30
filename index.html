@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/eruda/1.5.7/eruda.min.js"></script>
+  <script type="text/javascript">
+	if (!/localhost/.test(location.href)) {
+	  eruda.init();
+	}
+  </script>
+  <title>Title</title>
+  <script type="text/javascript" src="./lib/index.js"></script>
+  <style>
+
+    body {
+      height: 2000px;
+      background-image: linear-gradient(to bottom, #fff 0, #fff 5px, #000 5px, #000 5.5px);
+      background-position: right top;
+      background-size: 20px 6px;
+      background-repeat: repeat-y;
+    }
+
+    .popup {
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      z-index: 1;
+      overflow-y: auto;
+      height: 300px;
+    }
+
+    .popup-mask {
+      background-color: rgba(0, 0, 0, 0.4);
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      top: 0;
+      left: 0;
+    }
+
+
+    .item {
+      line-height: 40px;
+    }
+
+    .cell {
+      padding: 10px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .cell button {
+      height: 30px;
+      width: 120px;
+    }
+  </style>
+
+</head>
+<body>
+<button id="btn">Show Popup</button>
+
+<div class="popup-mask" style="display: none;"></div>
+<div class="popup" style="display: none;">
+  <div class="cell">
+    <button id="lock">lock</button>
+    <button id="release">release</button>
+  </div>
+  <ul class="list">
+    <li class="item">item-01</li>
+    <li class="item">item-02</li>
+    <li class="item">item-03</li>
+    <li class="item">item-04</li>
+    <li class="item">item-05</li>
+    <li class="item">item-06</li>
+    <li class="item">item-07</li>
+    <li class="item">item-08</li>
+    <li class="item">item-09</li>
+    <li class="item">item-10</li>
+    <li class="item">item-11</li>
+    <li class="item">item-12</li>
+    <li class="item">item-13</li>
+    <li class="item">item-14</li>
+    <li class="item">item-15</li>
+    <li class="item">item-16</li>
+    <li class="item">item-17</li>
+    <li class="item">item-18</li>
+    <li class="item">item-19</li>
+    <li class="item">item-20</li>
+  </ul>
+</div>
+
+<script>
+  const $ = q => document.querySelector(q);
+  // import ScrollLocker from './lib/index.js';
+
+  const locker = new ScrollLocker();
+
+  $('#lock').addEventListener('click', function () {
+	locker.lock();
+  });
+
+  $('#release').addEventListener('click', function () {
+	locker.release();
+  });
+
+  $('#btn').addEventListener('click', function () {
+	$('.popup').style.display = 'block';
+	$('.popup-mask').style.display = 'block';
+  });
+
+  const mask = $('.popup-mask');
+  console.log(mask);
+  mask.addEventListener('touchmove', e => e.preventDefault());
+  mask.addEventListener('click', function () {
+	console.log('close');
+	$('.popup').style.display = 'none';
+	$('.popup-mask').style.display = 'none';
+  });
+</script>
+</body>
+</html>

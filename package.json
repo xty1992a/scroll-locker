@@ -1,0 +1,41 @@
+{
+  "name": "@redbuck/scroll-locker",
+  "version": "1.0.2",
+  "description": "lock scrolling Element when you open a popup",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "pub": "npm publish --access public",
+    "prepublishOnly": "npm run build",
+    "build": "rollup -c"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xty1992a/scroll-locker.git"
+  },
+  "keywords": [
+    "scroll",
+    "lock"
+  ],
+  "author": "TY-xie",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xty1992a/scroll-locker/issues"
+  },
+  "homepage": "https://github.com/xty1992a/scroll-locker#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.0.0-beta.44",
+    "@babel/core": "^7.5.5",
+    "@babel/node": "^7.0.0-beta.44",
+    "@babel/plugin-proposal-class-properties": "7.5.5",
+    "@babel/preset-env": "^7.0.0-beta.44",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^22.4.3",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "rollup": "^1.17.0",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-uglify": "^6.0.2"
+  }
+}
